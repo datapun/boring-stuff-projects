@@ -1,0 +1,30 @@
+tableData = [['apples', 'oranges', 'cherries', 'banana'],
+             ['Alice', 'Bob', 'Carol', 'David'],
+             ['dogs', 'cats', 'moose', 'goose'],
+             ['abc','dce','asdasda','erwerq']]
+
+
+maxlength = [0]*len(tableData)
+
+for j in range(len(tableData)):
+    for i in range(len(tableData[j])):
+        if maxlength[j] < len(tableData[j][i]):
+            maxlength[j] = len(tableData[j][i])
+#print(maxlength)
+
+for i in range(len(tableData[0])):
+    for j in range(len(tableData)):
+        print(tableData[j][i].rjust(maxlength[j]+1), end=" ")
+        j+=1
+    print('')
+    i+=1
+###
+#print(tableData[0][0],tableData[1][0],tableData[2][0])
+
+
+#for m in range(len(tableData[0])):
+ #   for n in range(len(tableData)):
+#        print (tableData[n][m],end=" ")
+  #      n+=1
+   # print (m)
+    #m+=1
