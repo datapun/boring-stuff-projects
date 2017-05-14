@@ -1,0 +1,20 @@
+import re
+#phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups
+#test = phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
+
+#print(test)
+#print(test[0][2])
+
+numbersCommas = re.compile(r'^\d{1,3}(,\d{3})*$')
+
+testc=numbersCommas.search('4,345').group()
+print(testc)
+nakamoto = re.compile(r'^[A-Z][a-z]*\sNakamoto$')
+
+testn = nakamoto.search('Ss Nakamoto').group()
+print(testn)
+
+sentence = re.compile(r'(Alice|Bob|Carol)\s(eats|pets|throws)\s(apples|cats|baseballs)\.$',re.IGNORECASE)
+
+tests = sentence.search('Robocop eats apples.').group()
+print(tests)
