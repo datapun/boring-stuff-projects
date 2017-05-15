@@ -1,0 +1,19 @@
+import re
+
+#najprv odstranit \s zo zaciatku a konca
+#pripadne odstranit XYZ (parameter) zo stringu (nie len zaciatku alebo konca)
+
+remove_whitespace = re.compile(r'^(\s*)(.*\S)(\s*)$')
+
+def removeFunction(string,characters=''):
+    if characters == '':
+        #newString = remove_whitespace.match(string).group(2)
+        remove_whitespace = re.compile(r'^(\s*)(.*\S)(\s*)$')
+        print(remove_whitespace.search(string).group(2))
+    else:
+        removeAnyCharacter = re.sub(characters, '', string)
+        print(removeAnyCharacter)
+
+
+removeFunction(' etewt  er e e ete wt       ','ete')
+removeFunction('efwegr arg er wr wertwert   ')
