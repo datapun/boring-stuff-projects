@@ -1,0 +1,11 @@
+import os
+
+#the print shows that 'subfolders' and 'files' return lists in the first loop. that is why the second and third loops work
+
+for folders, subfolders, files in os.walk('C:\\Users\\michal.sicak\\pythonTest'):
+    print('the current folder is '+folders+str(subfolders)+str(files))
+    for subfolder in subfolders:
+        print('the subfolder of '+folders+' is '+subfolder)
+    for file in files:
+        print('the files inside '+folders+' is '+file)
+    print('')
