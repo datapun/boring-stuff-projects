@@ -1,0 +1,24 @@
+#! python3
+# !!! in order for this to run:
+# 1. create a .bat file (mcb.bat) with "@pyw.exe C:\locationToScript %*
+# 2. put this code in .pyw and the bat code to the same folder (one that is in the system PATH list)
+# 3. make sure indentation is correct! pyCharm is helpful, make sure all indentation is the same (either spaces or tabs), lest it won't be working
+# This is a code to copy, load or list multiple clipboards
+# usage: enter this to terminal: pyw.exe mcb.pyw save <keyword> for creating a new clipboard
+# pyw.exe mcb.pyw list for listing all clipboards
+# pyw.exe mcb.pyw <keyword> for loading clipboard
+
+import pyperclip, sys, shelve
+
+mcbShelf = shelve.open('mcb')
+
+#check if there is 'save'
+if len(sys.argv) == 3 and sys.argv[1].lower() == 'save':
+    mcbShelf[sys.argv[2]] = pyperclip.paste()
+elif len(sys.argv) == 2:
+    if sys.argv[1].lower() == 'list':
+        pyperclip.copy(str(list(mcbShelf.keys())))
+    elif sys.argv[1] in mcbShelf:
+        pyperclip.copy(mcbShelf(sys.argv[1]))
+
+mcbShelf.close()
